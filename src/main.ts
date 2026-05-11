@@ -6,7 +6,7 @@ import type { Capital, GeoJSON, Mode, PersistedMode } from './types';
 
 const QUESTIONS = 5;
 const TIMER_SECS = 300;
-const HARD_VISIBLE_DOTS = 5;
+const HARD_VISIBLE_DOTS = 6; // Five not including target city
 
 let capitals: Capital[] = [];
 let geojson: GeoJSON;
