@@ -1,8 +1,8 @@
 import { initGlobe, highlightCapital, revealCountry, clearCountry, resetDots, nearestCapitals } from './globe';
-import { seededShuffle, todayISO } from './seed';
+import { seededShuffle, randomShuffle, todayISO } from './seed';
 import { isCorrect } from './match';
 import { hasPlayedToday, getPlayRecord, saveResult, clearPlayRecord } from './cookie';
-import type { Capital, GeoJSON, Mode } from './types';
+import type { Capital, GeoJSON, Mode, PersistedMode } from './types';
 
 const QUESTIONS = 5;
 const TIMER_SECS = 300;
@@ -14,6 +14,7 @@ let queue: Capital[] = [];
 let questionIndex = 0;
 let score = 0;
 let timerInterval: ReturnType<typeof setInterval> | null = null;
+let nextQuestionTimer: ReturnType<typeof setTimeout> | null = null;
 let secondsLeft = TIMER_SECS;
 let answering = false;
 let mode: Mode = 'daily';
@@ -36,25 +37,20 @@ async function bootstrap() {
 
 function showModeSelectScreen() {
   show('screen-mode-select');
-  document.querySelectorAll<HTMLButtonElement>('.mode-tile').forEach(tile => {
-    if (tile.disabled) return;
-    const tileMode = tile.dataset.mode as Mode;
-    tile.addEventListener('click', () => selectMode(tileMode), { once: true });
-  });
 }
 
 function selectMode(selected: Mode) {
   mode = selected;
-  if (hasPlayedToday(mode)) {
-    showDoneScreen();
+  if (mode !== 'endless' && hasPlayedToday(mode)) {
+    showDoneScreen(mode);
     return;
   }
   startGame();
 }
 
-function showDoneScreen() {
+function showDoneScreen(persisted: PersistedMode) {
   show('screen-done');
-  const rec = getPlayRecord(mode);
+  const rec = getPlayRecord(persisted);
   const scoreEl = document.getElementById('done-score')!;
   if (rec) scoreEl.textContent = `Your score: ${rec.score} / ${QUESTIONS}`;
 }
@@ -65,29 +61,46 @@ function visibleSetFor(capital: Capital): Capital[] {
     : capitals;
 }
 
-function seedFor(mode: Mode): string {
-  return mode === 'hard' ? `${todayISO()}:hard` : todayISO();
-}
-
 function startGame() {
-  queue = seededShuffle(capitals, seedFor(mode)).slice(0, QUESTIONS);
+  if (mode === 'endless') {
+    queue = randomShuffle(capitals);
+  } else {
+    const seed = mode === 'hard' ? `${todayISO()}:hard` : todayISO();
+    queue = seededShuffle(capitals, seed).slice(0, QUESTIONS);
+  }
   questionIndex = 0;
   score = 0;
+
+  const gameScreen = document.getElementById('screen-game')!;
+  gameScreen.classList.toggle('mode-endless', mode === 'endless');
 
   show('screen-game');
 
   const container = document.getElementById('globe-container')!;
   initGlobe(container, mode === 'hard' ? [] : capitals);
 
-  setTimeout(() => nextQuestion(), 800);
+  scheduleNextQuestion(800);
+}
+
+function scheduleNextQuestion(delay: number) {
+  if (nextQuestionTimer) clearTimeout(nextQuestionTimer);
+  nextQuestionTimer = setTimeout(() => {
+    nextQuestionTimer = null;
+    nextQuestion();
+  }, delay);
 }
 
 function nextQuestion() {
   clearCountry();
 
-  if (questionIndex >= QUESTIONS) {
+  if (mode !== 'endless' && questionIndex >= QUESTIONS) {
     endGame();
     return;
+  }
+
+  if (mode === 'endless' && questionIndex >= queue.length) {
+    queue = randomShuffle(capitals);
+    questionIndex = 0;
   }
 
   answering = true;
@@ -107,8 +120,12 @@ function nextQuestion() {
   btn.disabled = false;
   input.focus();
 
-  updateTimerBar(1);
-  startTimer(capital);
+  if (mode === 'endless') {
+    updateTimerBar(1);
+  } else {
+    updateTimerBar(1);
+    startTimer(capital);
+  }
 }
 
 function startTimer(capital: Capital) {
@@ -136,22 +153,37 @@ function resolveQuestion(capital: Capital, correct: boolean, timeout = false) {
   input.disabled = true;
   btn.disabled = true;
 
-  if (correct) score++;
+  if (correct && mode !== 'endless') score++;
 
+  const answer = `${capital.city}, ${capital.country}`;
   const msg = correct
-    ? `Correct! ${capital.city}`
+    ? `Correct! ${answer}`
     : timeout
-      ? `Time's up! It was ${capital.city}`
-      : `Wrong! It was ${capital.city}`;
+      ? `Time's up! It was ${answer}`
+      : `Wrong! It was ${answer}`;
 
   setFeedback(msg, correct);
   revealCountry(capital.country, correct, geojson);
 
   questionIndex++;
-  setTimeout(() => nextQuestion(), correct ? 2200 : 3000);
+  scheduleNextQuestion(correct ? 2200 : 3000);
 }
 
+function exitToModeSelect() {
+  if (timerInterval) clearInterval(timerInterval);
+  if (nextQuestionTimer) clearTimeout(nextQuestionTimer);
+  timerInterval = null;
+  nextQuestionTimer = null;
+  answering = false;
+  clearCountry();
+  setFeedback('', false);
+  showModeSelectScreen();
+}
+
+let pendingShareText = '';
+
 function endGame() {
+  if (mode === 'endless') return;
   saveResult(mode, score);
   show('screen-end');
 
@@ -162,16 +194,8 @@ function endGame() {
     .join('');
 
   const label = mode === 'hard' ? 'Capital Quiz (Hard)' : 'Capital Quiz';
-  const shareText = `${label} ${todayISO()}\n${emoji} ${score}/${QUESTIONS}`;
+  pendingShareText = `${label} ${todayISO()}\n${emoji} ${score}/${QUESTIONS}`;
   document.getElementById('share-text')!.textContent = emoji;
-
-  document.getElementById('share-btn')!.addEventListener('click', () => {
-    navigator.clipboard.writeText(shareText).then(() => {
-      const btn = document.getElementById('share-btn')!;
-      btn.textContent = 'Copied!';
-      setTimeout(() => (btn.textContent = 'Share result'), 2000);
-    });
-  });
 }
 
 function updateCounter() {
@@ -202,6 +226,9 @@ function show(id: string) {
 document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('answer-input') as HTMLInputElement;
   const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const exitBtn = document.getElementById('exit-btn') as HTMLButtonElement;
+  const shareBtn = document.getElementById('share-btn') as HTMLButtonElement;
+  const modeGrid = document.querySelector<HTMLElement>('.mode-grid')!;
 
   const submit = () => {
     if (!answering) return;
@@ -213,6 +240,21 @@ document.addEventListener('DOMContentLoaded', () => {
   btn.addEventListener('click', submit);
   input.addEventListener('keydown', e => {
     if (e.key === 'Enter') submit();
+  });
+  exitBtn.addEventListener('click', exitToModeSelect);
+
+  modeGrid.addEventListener('click', e => {
+    const tile = (e.target as HTMLElement).closest<HTMLButtonElement>('.mode-tile');
+    if (!tile || tile.disabled) return;
+    selectMode(tile.dataset.mode as Mode);
+  });
+
+  shareBtn.addEventListener('click', () => {
+    if (!pendingShareText) return;
+    navigator.clipboard.writeText(pendingShareText).then(() => {
+      shareBtn.textContent = 'Copied!';
+      setTimeout(() => (shareBtn.textContent = 'Share result'), 2000);
+    });
   });
 
   bootstrap();

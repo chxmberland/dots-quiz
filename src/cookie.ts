@@ -1,9 +1,9 @@
 import { todayISO } from './seed';
-import type { Mode } from './types';
+import type { PersistedMode } from './types';
 
 type PlayRecord = { date: string; done: boolean; score: number };
 
-const KEYS: Record<Mode, string> = {
+const KEYS: Record<PersistedMode, string> = {
   daily: 'cq_played_daily',
   hard: 'cq_played_hard',
 };
@@ -14,7 +14,7 @@ export function clearPlayRecord() {
   }
 }
 
-export function getPlayRecord(mode: Mode): PlayRecord | null {
+export function getPlayRecord(mode: PersistedMode): PlayRecord | null {
   const key = KEYS[mode];
   const raw = document.cookie
     .split('; ')
@@ -27,12 +27,12 @@ export function getPlayRecord(mode: Mode): PlayRecord | null {
   }
 }
 
-export function hasPlayedToday(mode: Mode): boolean {
+export function hasPlayedToday(mode: PersistedMode): boolean {
   const rec = getPlayRecord(mode);
   return !!rec && rec.date === todayISO() && rec.done;
 }
 
-export function saveResult(mode: Mode, score: number) {
+export function saveResult(mode: PersistedMode, score: number) {
   const key = KEYS[mode];
   const payload = JSON.stringify({ date: todayISO(), done: true, score });
   const expires = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toUTCString();

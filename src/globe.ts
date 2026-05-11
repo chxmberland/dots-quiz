@@ -7,6 +7,7 @@ let globe: GlobeInstance;
 let tweenTimer: ReturnType<typeof setTimeout> | null = null;
 
 export function initGlobe(container: HTMLElement, capitals: Capital[]): GlobeInstance {
+  container.replaceChildren();
   globe = new Globe(container)
     .width(container.clientWidth)
     .height(container.clientHeight);

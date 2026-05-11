@@ -22,6 +22,15 @@ function lcg(s: number): number {
   return ((s * 1664525 + 1013904223) >>> 0);
 }
 
+export function randomShuffle<T>(arr: T[]): T[] {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
 export function todayISO(): string {
   return new Date().toISOString().slice(0, 10);
 }

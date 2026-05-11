@@ -14,10 +14,9 @@
         <h1>Capital Quiz</h1>
         <p>A red dot will appear on the globe. Type the name of the capital city it represents.</p>
         <div class="mode-grid">
-          <button class="mode-tile" data-mode="endless" disabled>
+          <button class="mode-tile" data-mode="endless">
             <div class="mode-name">Endless</div>
             <div class="mode-desc">Free play. No timer, no score. Exit any time.</div>
-            <div class="mode-badge">Coming soon</div>
           </button>
           <button class="mode-tile" data-mode="daily">
             <div class="mode-name">Daily Challenge</div>
@@ -32,6 +31,7 @@
 
       <!-- Game -->
       <div id="screen-game" class="screen">
+        <button id="exit-btn" class="btn btn-secondary" type="button">Exit</button>
         <div id="globe-container"></div>
         <div id="feedback-overlay"></div>
         <div class="game-ui">

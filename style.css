@@ -134,6 +134,26 @@ html, body {
   width: 100%;
   height: 100%;
   flex-direction: column;
+  position: relative;
+}
+
+#exit-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  z-index: 10;
+  display: none;
+}
+
+#screen-game.mode-endless #exit-btn {
+  display: inline-block;
+}
+
+#screen-game.mode-endless .question-counter,
+#screen-game.mode-endless .timer-bar-wrap {
+  display: none;
 }
 
 #globe-container {
