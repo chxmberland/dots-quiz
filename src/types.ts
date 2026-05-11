@@ -1,3 +1,5 @@
+export type Mode = 'daily' | 'hard';
+
 export type Capital = {
   city: string;
   country: string;

@@ -1,11 +1,12 @@
-import { initGlobe, highlightCapital, revealCountry, clearCountry, resetDots } from './globe';
+import { initGlobe, highlightCapital, revealCountry, clearCountry, resetDots, nearestCapitals } from './globe';
 import { seededShuffle, todayISO } from './seed';
 import { isCorrect } from './match';
 import { hasPlayedToday, getPlayRecord, saveResult, clearPlayRecord } from './cookie';
-import type { Capital, GeoJSON } from './types';
+import type { Capital, GeoJSON, Mode } from './types';
 
-const QUESTIONS = 3;
+const QUESTIONS = 5;
 const TIMER_SECS = 300;
+const HARD_VISIBLE_DOTS = 5;
 
 let capitals: Capital[] = [];
 let geojson: GeoJSON;
@@ -15,6 +16,7 @@ let score = 0;
 let timerInterval: ReturnType<typeof setInterval> | null = null;
 let secondsLeft = TIMER_SECS;
 let answering = false;
+let mode: Mode = 'daily';
 
 async function bootstrap() {
   if (new URLSearchParams(location.search).has('reset')) {
@@ -29,43 +31,59 @@ async function bootstrap() {
   capitals = await capsRes.json();
   geojson = await geoRes.json();
 
-  if (hasPlayedToday()) {
+  showModeSelectScreen();
+}
+
+function showModeSelectScreen() {
+  show('screen-mode-select');
+  document.querySelectorAll<HTMLButtonElement>('.mode-tile').forEach(tile => {
+    if (tile.disabled) return;
+    const tileMode = tile.dataset.mode as Mode;
+    tile.addEventListener('click', () => selectMode(tileMode), { once: true });
+  });
+}
+
+function selectMode(selected: Mode) {
+  mode = selected;
+  if (hasPlayedToday(mode)) {
     showDoneScreen();
     return;
   }
-
-  showStartScreen();
-}
-
-function showStartScreen() {
-  show('screen-start');
-  const btn = document.getElementById('start-btn')!;
-  btn.addEventListener('click', startGame, { once: true });
+  startGame();
 }
 
 function showDoneScreen() {
   show('screen-done');
-  const rec = getPlayRecord();
+  const rec = getPlayRecord(mode);
   const scoreEl = document.getElementById('done-score')!;
   if (rec) scoreEl.textContent = `Your score: ${rec.score} / ${QUESTIONS}`;
 }
 
+function visibleSetFor(capital: Capital): Capital[] {
+  return mode === 'hard'
+    ? nearestCapitals(capital, capitals, HARD_VISIBLE_DOTS)
+    : capitals;
+}
+
+function seedFor(mode: Mode): string {
+  return mode === 'hard' ? `${todayISO()}:hard` : todayISO();
+}
+
 function startGame() {
-  queue = seededShuffle(capitals, todayISO()).slice(0, QUESTIONS);
+  queue = seededShuffle(capitals, seedFor(mode)).slice(0, QUESTIONS);
   questionIndex = 0;
   score = 0;
 
   show('screen-game');
 
   const container = document.getElementById('globe-container')!;
-  initGlobe(container, capitals);
+  initGlobe(container, mode === 'hard' ? [] : capitals);
 
   setTimeout(() => nextQuestion(), 800);
 }
 
 function nextQuestion() {
   clearCountry();
-  resetDots(capitals);
 
   if (questionIndex >= QUESTIONS) {
     endGame();
@@ -75,9 +93,11 @@ function nextQuestion() {
   answering = true;
   secondsLeft = TIMER_SECS;
   const capital = queue[questionIndex];
+  const visible = visibleSetFor(capital);
 
+  resetDots(visible);
   updateCounter();
-  highlightCapital(capital, capitals);
+  highlightCapital(capital, visible);
   setFeedback('', false);
 
   const input = document.getElementById('answer-input') as HTMLInputElement;
@@ -132,7 +152,7 @@ function resolveQuestion(capital: Capital, correct: boolean, timeout = false) {
 }
 
 function endGame() {
-  saveResult(score);
+  saveResult(mode, score);
   show('screen-end');
 
   document.getElementById('end-score')!.textContent = `${score} / ${QUESTIONS}`;
@@ -141,7 +161,8 @@ function endGame() {
     .map((_, i) => (i < score ? '🟢' : '🔴'))
     .join('');
 
-  const shareText = `Capital Quiz ${todayISO()}\n${emoji} ${score}/${QUESTIONS}`;
+  const label = mode === 'hard' ? 'Capital Quiz (Hard)' : 'Capital Quiz';
+  const shareText = `${label} ${todayISO()}\n${emoji} ${score}/${QUESTIONS}`;
   document.getElementById('share-text')!.textContent = emoji;
 
   document.getElementById('share-btn')!.addEventListener('click', () => {

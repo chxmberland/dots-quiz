@@ -44,24 +44,89 @@ html, body {
   display: flex;
 }
 
-/* ── Start screen ── */
-#screen-start {
+/* ── Mode select screen ── */
+#screen-mode-select {
   gap: 1.5rem;
   text-align: center;
   padding: 2rem;
   justify-content: center;
 }
 
-#screen-start h1 {
+#screen-mode-select h1 {
   font-size: 2.5rem;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
 
-#screen-start p {
+#screen-mode-select > p {
   color: var(--muted);
-  max-width: 34ch;
+  max-width: 40ch;
   line-height: 1.6;
+}
+
+.mode-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 780px;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .mode-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mode-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.4rem 1.2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  transition: border-color 0.15s, transform 0.15s, background 0.15s;
+}
+
+.mode-tile:hover:not(:disabled) {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.mode-tile:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.mode-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.mode-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.mode-badge {
+  margin-top: auto;
+  align-self: flex-start;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
 }
 
 /* ── Game screen ── */

@@ -9,12 +9,25 @@
   <body>
     <div id="app">
 
-      <!-- Start -->
-      <div id="screen-start" class="screen">
+      <!-- Mode select -->
+      <div id="screen-mode-select" class="screen">
         <h1>Capital Quiz</h1>
         <p>A red dot will appear on the globe. Type the name of the capital city it represents.</p>
-        <p style="color:var(--muted);font-size:0.85rem;">3 questions · 30 seconds each · once per day</p>
-        <button id="start-btn" class="btn btn-primary">Play today's quiz</button>
+        <div class="mode-grid">
+          <button class="mode-tile" data-mode="endless" disabled>
+            <div class="mode-name">Endless</div>
+            <div class="mode-desc">Free play. No timer, no score. Exit any time.</div>
+            <div class="mode-badge">Coming soon</div>
+          </button>
+          <button class="mode-tile" data-mode="daily">
+            <div class="mode-name">Daily Challenge</div>
+            <div class="mode-desc">5 questions, 30 seconds each. Once per day.</div>
+          </button>
+          <button class="mode-tile" data-mode="hard">
+            <div class="mode-name">Extra Hard</div>
+            <div class="mode-desc">Only the 5 nearest capitals are shown. No global context.</div>
+          </button>
+        </div>
       </div>
 
       <!-- Game -->
@@ -22,7 +35,7 @@
         <div id="globe-container"></div>
         <div id="feedback-overlay"></div>
         <div class="game-ui">
-          <div class="question-counter" id="question-counter">Question 1 of 3</div>
+          <div class="question-counter" id="question-counter">Question 1 of 5</div>
           <div class="question-label">Which capital city is this?</div>
           <div class="input-row">
             <input
@@ -43,7 +56,7 @@
       <!-- End -->
       <div id="screen-end" class="screen">
         <h2>You scored</h2>
-        <div class="score-display" id="end-score">0 / 3</div>
+        <div class="score-display" id="end-score">0 / 5</div>
         <div class="share-text" id="share-text"></div>
         <button id="share-btn" class="btn btn-secondary">Share result</button>
         <p style="color:var(--muted);font-size:0.85rem;">Come back tomorrow for a new quiz.</p>

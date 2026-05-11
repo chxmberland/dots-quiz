@@ -35,8 +35,8 @@ export function initGlobe(container: HTMLElement, capitals: Capital[]): GlobeIns
   return globe;
 }
 
-export function highlightCapital(capital: Capital, allCapitals: Capital[]) {
-  const updated = allCapitals.map(c => ({
+export function highlightCapital(capital: Capital, visibleCapitals: Capital[]) {
+  const updated = visibleCapitals.map(c => ({
     ...c,
     _active: c.city === capital.city && c.country === capital.country,
   }));
@@ -47,6 +47,28 @@ export function highlightCapital(capital: Capital, allCapitals: Capital[]) {
     .pointRadius((d: object) => ((d as { _active?: boolean })._active ? 0.65 : 0.3));
 
   rotateTo(capital.lat, capital.lng);
+}
+
+export function nearestCapitals(target: Capital, capitals: Capital[], n: number): Capital[] {
+  const others = capitals
+    .filter(c => !(c.city === target.city && c.country === target.country))
+    .map(c => ({ c, d: greatCircle(target, c) }))
+    .sort((a, b) => a.d - b.d)
+    .slice(0, Math.max(0, n - 1))
+    .map(x => x.c);
+  return [target, ...others];
+}
+
+function greatCircle(a: Capital, b: Capital): number {
+  const toRad = (deg: number) => (deg * Math.PI) / 180;
+  const dLat = toRad(b.lat - a.lat);
+  const dLng = toRad(b.lng - a.lng);
+  const lat1 = toRad(a.lat);
+  const lat2 = toRad(b.lat);
+  const h =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
+  return 2 * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h));
 }
 
 export function revealCountry(
@@ -73,9 +95,9 @@ export function clearCountry() {
   globe.polygonsData([]);
 }
 
-export function resetDots(capitals: Capital[]) {
+export function resetDots(visibleCapitals: Capital[]) {
   globe
-    .pointsData(capitals)
+    .pointsData(visibleCapitals)
     .pointColor(() => 'rgba(200,200,200,0.55)')
     .pointRadius(0.3);
 }

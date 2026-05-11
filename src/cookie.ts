@@ -1,32 +1,40 @@
 import { todayISO } from './seed';
+import type { Mode } from './types';
 
 type PlayRecord = { date: string; done: boolean; score: number };
 
-const KEY = 'cq_played';
+const KEYS: Record<Mode, string> = {
+  daily: 'cq_played_daily',
+  hard: 'cq_played_hard',
+};
 
 export function clearPlayRecord() {
-  document.cookie = `${KEY}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+  for (const key of Object.values(KEYS)) {
+    document.cookie = `${key}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+  }
 }
 
-export function getPlayRecord(): PlayRecord | null {
+export function getPlayRecord(mode: Mode): PlayRecord | null {
+  const key = KEYS[mode];
   const raw = document.cookie
     .split('; ')
-    .find(row => row.startsWith(KEY + '='));
+    .find(row => row.startsWith(key + '='));
   if (!raw) return null;
   try {
-    return JSON.parse(decodeURIComponent(raw.slice(KEY.length + 1)));
+    return JSON.parse(decodeURIComponent(raw.slice(key.length + 1)));
   } catch {
     return null;
   }
 }
 
-export function hasPlayedToday(): boolean {
-  const rec = getPlayRecord();
+export function hasPlayedToday(mode: Mode): boolean {
+  const rec = getPlayRecord(mode);
   return !!rec && rec.date === todayISO() && rec.done;
 }
 
-export function saveResult(score: number) {
+export function saveResult(mode: Mode, score: number) {
+  const key = KEYS[mode];
   const payload = JSON.stringify({ date: todayISO(), done: true, score });
   const expires = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toUTCString();
-  document.cookie = `${KEY}=${encodeURIComponent(payload)}; expires=${expires}; path=/; SameSite=Lax`;
+  document.cookie = `${key}=${encodeURIComponent(payload)}; expires=${expires}; path=/; SameSite=Lax`;
 }
