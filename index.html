@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capital Quiz</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- Start -->
+      <div id="screen-start" class="screen">
+        <h1>Capital Quiz</h1>
+        <p>A red dot will appear on the globe. Type the name of the capital city it represents.</p>
+        <p style="color:var(--muted);font-size:0.85rem;">3 questions · 30 seconds each · once per day</p>
+        <button id="start-btn" class="btn btn-primary">Play today's quiz</button>
+      </div>
+
+      <!-- Game -->
+      <div id="screen-game" class="screen">
+        <div id="globe-container"></div>
+        <div id="feedback-overlay"></div>
+        <div class="game-ui">
+          <div class="question-counter" id="question-counter">Question 1 of 3</div>
+          <div class="question-label">Which capital city is this?</div>
+          <div class="input-row">
+            <input
+              id="answer-input"
+              type="text"
+              placeholder="Type the capital city…"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button id="submit-btn" class="btn btn-primary">Submit</button>
+          </div>
+          <div class="timer-bar-wrap">
+            <div id="timer-bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- End -->
+      <div id="screen-end" class="screen">
+        <h2>You scored</h2>
+        <div class="score-display" id="end-score">0 / 3</div>
+        <div class="share-text" id="share-text"></div>
+        <button id="share-btn" class="btn btn-secondary">Share result</button>
+        <p style="color:var(--muted);font-size:0.85rem;">Come back tomorrow for a new quiz.</p>
+      </div>
+
+      <!-- Already played -->
+      <div id="screen-done" class="screen">
+        <h2>Already played today</h2>
+        <p id="done-score" style="color:var(--muted)"></p>
+        <p style="color:var(--muted);font-size:0.85rem;">Come back tomorrow for a new quiz.</p>
+      </div>
+
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

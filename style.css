@@ -1,0 +1,264 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --border: #30363d;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --red: #ff3333;
+  --green: #3fb950;
+  --accent: #58a6ff;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Screens ── */
+.screen {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.screen.active {
+  display: flex;
+}
+
+/* ── Start screen ── */
+#screen-start {
+  gap: 1.5rem;
+  text-align: center;
+  padding: 2rem;
+  justify-content: center;
+}
+
+#screen-start h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+#screen-start p {
+  color: var(--muted);
+  max-width: 34ch;
+  line-height: 1.6;
+}
+
+/* ── Game screen ── */
+#screen-game {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+}
+
+#globe-container {
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+.game-ui {
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+}
+
+.question-counter {
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.question-label {
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.input-row {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+#answer-input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+#answer-input:focus {
+  border-color: var(--accent);
+}
+
+#answer-input:disabled {
+  opacity: 0.5;
+}
+
+#submit-btn {
+  padding: 0.6rem 1.2rem;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  color: #0d1117;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+#submit-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.timer-bar-wrap {
+  width: 100%;
+  max-width: 420px;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+#timer-bar {
+  height: 100%;
+  background: var(--accent);
+  transition: width 1s linear, background 0.3s;
+  width: 100%;
+}
+
+#timer-bar.urgent {
+  background: var(--red);
+}
+
+/* ── Feedback overlay ── */
+#feedback-overlay {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+#feedback-overlay.visible {
+  opacity: 1;
+}
+
+#feedback-overlay.correct {
+  background: rgba(63,185,80,0.15);
+  border: 1px solid var(--green);
+  color: var(--green);
+}
+
+#feedback-overlay.wrong {
+  background: rgba(255,51,51,0.15);
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+
+/* ── End screen ── */
+#screen-end {
+  gap: 1.2rem;
+  text-align: center;
+  padding: 2rem;
+  justify-content: center;
+}
+
+#screen-end h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.score-display {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.share-text {
+  font-family: monospace;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+}
+
+/* ── Already played screen ── */
+#screen-done {
+  gap: 1.2rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+#screen-done h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* ── Shared button ── */
+.btn {
+  padding: 0.7rem 1.8rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #0d1117;
+}
+
+.btn-secondary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
