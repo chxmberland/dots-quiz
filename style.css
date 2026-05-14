@@ -24,7 +24,8 @@ html, body {
 }
 
 #app {
-  height: 100vh;
+  height: 100vh;   /* fallback for older browsers */
+  height: 100svh;  /* clamps to visible area with browser chrome showing */
   display: flex;
   flex-direction: column;
   align-items: center;
