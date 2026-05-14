@@ -115,7 +115,7 @@ function rotateTo(lat: number, lng: number) {
   if (tweenTimer) clearTimeout(tweenTimer);
   globe.controls().autoRotate = false;
 
-  globe.pointOfView({ lat, lng, altitude: 1.5 }, 1200);
+  globe.pointOfView({ lat, lng, altitude: 2.5 }, 1200);
 
   tweenTimer = null;
 }
