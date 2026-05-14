@@ -5,12 +5,20 @@ type GlobeInstance = InstanceType<typeof Globe>;
 
 let globe: GlobeInstance;
 let tweenTimer: ReturnType<typeof setTimeout> | null = null;
+let resizeHandler: (() => void) | null = null;
 
 export function initGlobe(container: HTMLElement, capitals: Capital[]): GlobeInstance {
   container.replaceChildren();
+  if (resizeHandler) window.removeEventListener('resize', resizeHandler);
+
   globe = new Globe(container)
     .width(container.clientWidth)
     .height(container.clientHeight);
+
+  resizeHandler = () => {
+    globe.width(container.clientWidth).height(container.clientHeight);
+  };
+  window.addEventListener('resize', resizeHandler);
 
   globe
     .backgroundColor('#0d1117')
@@ -30,7 +38,7 @@ export function initGlobe(container: HTMLElement, capitals: Capital[]): GlobeIns
     .polygonStrokeColor(() => 'rgba(0,0,0,0)');
 
   globe.controls().autoRotate = false;
-  globe.controls().enableZoom = false;
+  globe.controls().enableZoom = true;
   globe.pointOfView({ altitude: 2 });
 
   return globe;
