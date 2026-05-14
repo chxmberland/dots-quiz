@@ -5,7 +5,7 @@ import { hasPlayedToday, getPlayRecord, saveResult, clearPlayRecord } from './co
 import type { Capital, GeoJSON, Mode, PersistedMode } from './types';
 
 const QUESTIONS = 5;
-const TIMER_SECS = 300;
+const TIMER_SECS = 60;
 const HARD_VISIBLE_DOTS = 6; // Five not including target city
 
 let capitals: Capital[] = [];

@@ -170,7 +170,7 @@ html, body {
 
 .game-ui {
   position: absolute;
-  bottom: 2rem;
+  bottom: calc(3.5rem + env(safe-area-inset-bottom, 0px));
   left: 0;
   right: 0;
   z-index: 1;
@@ -198,7 +198,7 @@ html, body {
 .input-row {
   display: flex;
   gap: 0.5rem;
-  width: 100%;
+  width: calc(100% - 2.5rem);
   max-width: 420px;
 }
 
@@ -240,7 +240,7 @@ html, body {
 }
 
 .timer-bar-wrap {
-  width: 100%;
+  width: calc(100% - 2.5rem);
   max-width: 420px;
   height: 4px;
   background: var(--border);
@@ -262,7 +262,7 @@ html, body {
 /* ── Feedback overlay ── */
 #feedback-overlay {
   position: absolute;
-  top: 1.5rem;
+  top: calc(1.5rem + env(safe-area-inset-top, 0px));
   left: 50%;
   transform: translateX(-50%);
   padding: 0.6rem 1.4rem;
