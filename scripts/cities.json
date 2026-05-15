@@ -1,0 +1,225 @@
+[
+  { "city": "New York City",   "country": "US", "system": "NYC Subway" },
+  { "city": "Chicago",         "country": "US", "system": "CTA L" },
+  { "city": "Washington",      "country": "US", "system": "WMATA Metro" },
+  { "city": "Boston",          "country": "US", "system": "MBTA Subway" },
+  { "city": "Philadelphia",    "country": "US", "system": "SEPTA Subway" },
+  { "city": "San Francisco",   "country": "US", "system": "BART / Muni Metro" },
+  { "city": "Atlanta",         "country": "US", "system": "MARTA" },
+  { "city": "Miami",           "country": "US", "system": "Metrorail" },
+  { "city": "Los Angeles",     "country": "US", "system": "LA Metro Rail" },
+  { "city": "Baltimore",       "country": "US", "system": "Metro SubwayLink" },
+  { "city": "Cleveland",       "country": "US", "system": "RTA Heavy Rail" },
+  { "city": "Buffalo",         "country": "US", "system": "Niagara Frontier Metro Rail" },
+  { "city": "Honolulu",        "country": "US", "system": "Skyline" },
+  { "city": "Dallas",          "country": "US", "system": "DART Light Rail" },
+  { "city": "Denver",          "country": "US", "system": "RTD Light Rail" },
+  { "city": "Houston",         "country": "US", "system": "METRORail" },
+  { "city": "Minneapolis",     "country": "US", "system": "Metro Transit Blue/Green" },
+  { "city": "Portland",        "country": "US", "system": "MAX Light Rail" },
+  { "city": "Seattle",         "country": "US", "system": "Link Light Rail" },
+  { "city": "Salt Lake City",  "country": "US", "system": "TRAX" },
+  { "city": "Phoenix",         "country": "US", "system": "Valley Metro Rail" },
+  { "city": "San Jose",        "country": "US", "system": "VTA Light Rail" },
+  { "city": "Sacramento",      "country": "US", "system": "Sacramento RT Light Rail" },
+  { "city": "San Diego",       "country": "US", "system": "San Diego Trolley" },
+  { "city": "St. Louis",       "country": "US", "system": "MetroLink" },
+  { "city": "Pittsburgh",      "country": "US", "system": "Port Authority T" },
+  { "city": "Charlotte",       "country": "US", "system": "LYNX Blue Line" },
+  { "city": "Detroit",         "country": "US", "system": "People Mover" },
+  { "city": "Toronto",         "country": "CA", "system": "TTC Subway" },
+  { "city": "Montreal",        "country": "CA", "system": "STM Metro" },
+  { "city": "Vancouver",       "country": "CA", "system": "SkyTrain" },
+  { "city": "Ottawa",          "country": "CA", "system": "O-Train" },
+  { "city": "Calgary",         "country": "CA", "system": "CTrain" },
+  { "city": "Edmonton",        "country": "CA", "system": "Edmonton LRT" },
+  { "city": "Mexico City",     "country": "MX", "system": "Metro CDMX" },
+  { "city": "Guadalajara",            "country": "MX", "system": "Tren Ligero" },
+  { "city": "Monterrey",           "country": "MX", "system": "Metro Monterrey" },
+  { "city": "Santo Domingo",              "country": "DO", "system": "Metro de Santo Domingo" },
+  { "city": "Caracas",         "country": "VE", "system": "Metro de Caracas" },
+  { "city": "Bogota",          "country": "CO", "system": "Metro de Bogotá" },
+  { "city": "Medellín",        "country": "CO", "system": "Metro de Medellín" },
+  { "city": "Quito",           "country": "EC", "system": "Metro de Quito" },
+  { "city": "Lima",            "country": "PE", "system": "Metro de Lima" },
+  { "city": "Santiago",                 "country": "CL", "system": "Metro de Santiago" },
+  { "city": "Buenos Aires",    "country": "AR", "system": "Subte" },
+  { "city": "São Paulo",       "country": "BR", "system": "Metro SP" },
+  { "city": "Rio de Janeiro",  "country": "BR", "system": "Metro Rio" },
+  { "city": "Brasília",        "country": "BR", "system": "Metro DF" },
+  { "city": "Recife",          "country": "BR", "system": "Metro do Recife" },
+  { "city": "Porto Alegre",  "country": "BR", "system": "Trensurb" },
+  { "city": "Belo Horizonte",                  "country": "BR", "system": "Metro BH" },
+  { "city": "Fortaleza",                       "country": "BR", "system": "Metrofor" },
+  { "city": "Salvador",                 "country": "BR", "system": "Metro Salvador" },
+  { "city": "Cairo",              "country": "EG", "system": "Cairo Metro" },
+  { "city": "Algiers",                        "country": "DZ", "system": "Algiers Metro" },
+  { "city": "Tunis",                          "country": "TN", "system": "Metro Léger de Tunis" },
+  { "city": "Addis Ababa",                    "country": "ET", "system": "Addis Ababa Light Rail" },
+  { "city": "Lagos State",                    "country": "NG", "system": "Lagos Blue Line" },
+  { "city": "Abuja",                          "country": "NG", "system": "Abuja Light Rail" },
+
+  { "city": "London",                 "country": "GB", "system": "London Underground" },
+
+  { "city": "Paris",                          "country": "FR", "system": "Paris Métro" },
+  { "city": "Lyon",                           "country": "FR", "system": "Lyon Metro" },
+  { "city": "Marseille",                      "country": "FR", "system": "Marseille Metro" },
+  { "city": "Lille",                          "country": "FR", "system": "Lille Metro" },
+  { "city": "Rennes",                         "country": "FR", "system": "Rennes Metro" },
+  { "city": "Toulouse",                       "country": "FR", "system": "Toulouse Metro" },
+
+  { "city": "Madrid",                         "country": "ES", "system": "Metro de Madrid" },
+  { "city": "Barcelona",                      "country": "ES", "system": "Metro de Barcelona" },
+  { "city": "Valencia",                "country": "ES", "system": "Metro Valencia" },
+  { "city": "Bilbao",                         "country": "ES", "system": "Metro Bilbao" },
+  { "city": "Seville",                        "country": "ES", "system": "Metro de Sevilla" },
+
+  { "city": "Lisbon",                         "country": "PT", "system": "Metro de Lisboa" },
+  { "city": "Porto",                "country": "PT", "system": "Metro do Porto" },
+
+  { "city": "Amsterdam",                      "country": "NL", "system": "GVB Metro" },
+  { "city": "Rotterdam",                      "country": "NL", "system": "RET Metro" },
+
+  { "city": "Brussels",                       "country": "BE", "system": "STIB Metro" },
+
+  { "city": "Berlin",                         "country": "DE", "system": "U-Bahn Berlin" },
+  { "city": "Munich",                         "country": "DE", "system": "U-Bahn München" },
+  { "city": "Hamburg",                        "country": "DE", "system": "U-Bahn Hamburg" },
+  { "city": "Frankfurt",              "country": "DE", "system": "U-Bahn Frankfurt" },
+  { "city": "Düsseldorf",                     "country": "DE", "system": "Stadtbahn Düsseldorf" },
+  { "city": "Nuremberg",                      "country": "DE", "system": "U-Bahn Nürnberg" },
+
+  { "city": "Vienna",                         "country": "AT", "system": "U-Bahn Wien" },
+
+  { "city": "Lausanne",                       "country": "CH", "system": "Lausanne Metro" },
+
+  { "city": "Milan",                          "country": "IT", "system": "Metro di Milano" },
+  { "city": "Rome",                           "country": "IT", "system": "Metro di Roma" },
+  { "city": "Naples",                         "country": "IT", "system": "Metro di Napoli" },
+  { "city": "Turin",                          "country": "IT", "system": "Metro Torino" },
+  { "city": "Brescia",                        "country": "IT", "system": "Metro Brescia" },
+  { "city": "Genoa",                          "country": "IT", "system": "Metro Genova" },
+  { "city": "Catania",                        "country": "IT", "system": "Metro Catania" },
+
+  { "city": "Stockholm",                      "country": "SE", "system": "Tunnelbana" },
+
+  { "city": "Oslo",                           "country": "NO", "system": "T-bane" },
+
+  { "city": "Helsinki",                       "country": "FI", "system": "Helsinki Metro" },
+
+  { "city": "Thessaloniki",                   "country": "GR", "system": "Thessaloniki Metro" },
+
+  { "city": "Budapest",                       "country": "HU", "system": "Budapest Metro" },
+
+  { "city": "Prague",                         "country": "CZ", "system": "Metro Praha" },
+
+  { "city": "Warsaw",                         "country": "PL", "system": "Metro Warszawskie" },
+
+  { "city": "Bucharest",                      "country": "RO", "system": "Metrou București" },
+
+  { "city": "Sofia, Bulgaria",                "country": "BG", "system": "Sofia Metro" },
+
+  { "city": "Kyiv",                           "country": "UA", "system": "Kyiv Metro" },
+  { "city": "Kharkiv",                        "country": "UA", "system": "Kharkiv Metro" },
+  { "city": "Dnipro",                         "country": "UA", "system": "Dnipro Metro" },
+
+  { "city": "Minsk",                          "country": "BY", "system": "Minsk Metro" },
+
+  { "city": "Moscow",                         "country": "RU", "system": "Moscow Metro" },
+  { "city": "Saint Petersburg",       "country": "RU", "system": "SPb Metro" },
+  { "city": "Nizhny Novgorod",                "country": "RU", "system": "Nizhny Novgorod Metro" },
+  { "city": "Novosibirsk",                    "country": "RU", "system": "Novosibirsk Metro" },
+  { "city": "Yekaterinburg",                  "country": "RU", "system": "Yekaterinburg Metro" },
+  { "city": "Samara",                 "country": "RU", "system": "Samara Metro" },
+  { "city": "Kazan",                          "country": "RU", "system": "Kazan Metro" },
+
+  { "city": "Baku",                           "country": "AZ", "system": "Baku Metro" },
+  { "city": "Tbilisi",                        "country": "GE", "system": "Tbilisi Metro" },
+  { "city": "Yerevan",                        "country": "AM", "system": "Yerevan Metro" },
+
+  { "city": "Istanbul",                       "country": "TR", "system": "Istanbul Metro" },
+  { "city": "Ankara",                         "country": "TR", "system": "Ankara Metro" },
+  { "city": "İzmir",                          "country": "TR", "system": "İzmir Metro" },
+
+  { "city": "Tehran",                         "country": "IR", "system": "Tehran Metro" },
+  { "city": "Mashhad",                        "country": "IR", "system": "Mashhad Metro" },
+  { "city": "Isfahan",                        "country": "IR", "system": "Isfahan Metro" },
+  { "city": "Tabriz",                         "country": "IR", "system": "Tabriz Metro" },
+  { "city": "Shiraz",                         "country": "IR", "system": "Shiraz Metro" },
+
+  { "city": "Dubai",                          "country": "AE", "system": "Dubai Metro" },
+
+  { "city": "Riyadh",                         "country": "SA", "system": "Riyadh Metro" },
+
+  { "city": "Doha",                           "country": "QA", "system": "Doha Metro" },
+
+  { "city": "Tel Aviv",                  "country": "IL", "system": "Tel Aviv Light Rail" },
+
+  { "city": "Almaty",                         "country": "KZ", "system": "Almaty Metro" },
+
+  { "city": "Tokyo",                          "country": "JP", "system": "Tokyo Metro / Toei" },
+  { "city": "Osaka",                          "country": "JP", "system": "Osaka Metro" },
+  { "city": "Nagoya",                         "country": "JP", "system": "Nagoya Municipal Subway" },
+  { "city": "Sapporo",                        "country": "JP", "system": "Sapporo Municipal Subway" },
+  { "city": "Yokohama",                       "country": "JP", "system": "Yokohama Municipal Subway" },
+  { "city": "Kyoto",                          "country": "JP", "system": "Kyoto Municipal Subway" },
+  { "city": "Fukuoka",                        "country": "JP", "system": "Fukuoka City Subway" },
+  { "city": "Kobe",                           "country": "JP", "system": "Kobe Municipal Subway" },
+  { "city": "Sendai",                         "country": "JP", "system": "Sendai Subway" },
+
+  { "city": "Beijing",                        "country": "CN", "system": "Beijing Subway" },
+  { "city": "Shanghai",                       "country": "CN", "system": "Shanghai Metro" },
+  { "city": "Guangzhou",                      "country": "CN", "system": "Guangzhou Metro" },
+  { "city": "Chengdu",                        "country": "CN", "system": "Chengdu Metro" },
+  { "city": "Wuhan",                          "country": "CN", "system": "Wuhan Metro" },
+  { "city": "Chongqing",                      "country": "CN", "system": "Chongqing Rail Transit" },
+  { "city": "Nanjing",                        "country": "CN", "system": "Nanjing Metro" },
+  { "city": "Xi'an",                          "country": "CN", "system": "Xi'an Metro" },
+  { "city": "Hangzhou",                       "country": "CN", "system": "Hangzhou Metro" },
+  { "city": "Tianjin",                        "country": "CN", "system": "Tianjin Metro" },
+  { "city": "Changsha",                       "country": "CN", "system": "Changsha Metro" },
+  { "city": "Qingdao",                        "country": "CN", "system": "Qingdao Metro" },
+  { "city": "Kunming",                        "country": "CN", "system": "Kunming Metro" },
+  { "city": "Harbin",                         "country": "CN", "system": "Harbin Metro" },
+  { "city": "Dalian",                         "country": "CN", "system": "Dalian Metro" },
+  { "city": "Suzhou",                         "country": "CN", "system": "Suzhou Metro" },
+  { "city": "Ningbo",                         "country": "CN", "system": "Ningbo Metro" },
+  { "city": "Hefei",                          "country": "CN", "system": "Hefei Metro" },
+  { "city": "Hong Kong",                      "country": "HK", "system": "MTR" },
+
+  { "city": "Seoul",                          "country": "KR", "system": "Seoul Metro" },
+  { "city": "Busan",                          "country": "KR", "system": "Busan Metro" },
+  { "city": "Incheon",                        "country": "KR", "system": "Incheon Metro" },
+  { "city": "Daegu",                          "country": "KR", "system": "Daegu Metro" },
+  { "city": "Daejeon",                        "country": "KR", "system": "Daejeon Metro" },
+  { "city": "Gwangju",                        "country": "KR", "system": "Gwangju Metro" },
+
+  { "city": "Taipei",                         "country": "TW", "system": "Taipei MRT" },
+  { "city": "Kaohsiung",                      "country": "TW", "system": "Kaohsiung MRT" },
+
+  { "city": "Singapore",                      "country": "SG", "system": "MRT" },
+
+  { "city": "Bangkok",                        "country": "TH", "system": "BTS / MRT Bangkok" },
+
+  { "city": "Kuala Lumpur",                   "country": "MY", "system": "Klang Valley MRT" },
+
+  { "city": "Jakarta",                        "country": "ID", "system": "MRT Jakarta" },
+
+  { "city": "Manila",                         "country": "PH", "system": "LRT / MRT Manila" },
+
+  { "city": "Ho Chi Minh City",               "country": "VN", "system": "HCMC Metro" },
+  { "city": "Hanoi",                          "country": "VN", "system": "Hanoi Metro" },
+
+  { "city": "Delhi",                          "country": "IN", "system": "Delhi Metro" },
+  { "city": "Bangalore",                      "country": "IN", "system": "Namma Metro" },
+  { "city": "Chennai",                        "country": "IN", "system": "Chennai Metro" },
+  { "city": "Hyderabad",                      "country": "IN", "system": "Hyderabad Metro" },
+  { "city": "Kolkata",                        "country": "IN", "system": "Kolkata Metro" },
+  { "city": "Kochi",                          "country": "IN", "system": "Kochi Metro" },
+  { "city": "Jaipur",                         "country": "IN", "system": "Jaipur Metro" },
+  { "city": "Lucknow",                        "country": "IN", "system": "Lucknow Metro" },
+  { "city": "Ahmedabad",                      "country": "IN", "system": "Ahmedabad Metro" },
+  { "city": "Nagpur",                         "country": "IN", "system": "Nagpur Metro" },
+
+  { "city": "Dhaka",                          "country": "BD", "system": "Dhaka Metro" }
+]

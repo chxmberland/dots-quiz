@@ -2,6 +2,7 @@ import { initGlobe, highlightCapital, revealCountry, clearCountry, resetDots, ne
 import { seededShuffle, randomShuffle, todayISO } from './seed';
 import { isCorrect } from './match';
 import { hasPlayedToday, getPlayRecord, saveResult, clearPlayRecord } from './cookie';
+import { initMetroGame } from './metro-game';
 import type { Capital, GeoJSON, Mode, PersistedMode } from './types';
 
 const QUESTIONS = 5;
@@ -18,6 +19,7 @@ let nextQuestionTimer: ReturnType<typeof setTimeout> | null = null;
 let secondsLeft = TIMER_SECS;
 let answering = false;
 let mode: Mode = 'daily';
+let metroGameStarted = false;
 
 async function bootstrap() {
   if (new URLSearchParams(location.search).has('reset')) {
@@ -41,6 +43,14 @@ function showModeSelectScreen() {
 
 function selectMode(selected: Mode) {
   mode = selected;
+  if (mode === 'metro') {
+    show('screen-metro');
+    if (!metroGameStarted) {
+      metroGameStarted = true;
+      initMetroGame();
+    }
+    return;
+  }
   if (mode !== 'endless' && hasPlayedToday(mode)) {
     showDoneScreen(mode);
     return;
@@ -183,7 +193,7 @@ function exitToModeSelect() {
 let pendingShareText = '';
 
 function endGame() {
-  if (mode === 'endless') return;
+  if (mode === 'endless' || mode === 'metro') return;
   saveResult(mode, score);
   show('screen-end');
 
@@ -242,6 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Enter') submit();
   });
   exitBtn.addEventListener('click', exitToModeSelect);
+  document.getElementById('metro-exit-btn')!.addEventListener('click', exitToModeSelect);
 
   modeGrid.addEventListener('click', e => {
     const tile = (e.target as HTMLElement).closest<HTMLButtonElement>('.mode-tile');

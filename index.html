@@ -19,6 +19,7 @@
     <meta name="twitter:description" content="Guess the world's capitals from a single dot on the globe. No borders, no labels — just your knowledge." />
     <meta name="twitter:image"       content="https://YOUR-DOMAIN.pages.dev/og-image.png" />
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
@@ -40,6 +41,10 @@
           <button class="mode-tile" data-mode="hard">
             <div class="mode-name">Extra Hard</div>
             <div class="mode-desc">Only the 5 nearest capitals are shown. No global context.</div>
+          </button>
+          <button class="mode-tile" data-mode="metro">
+            <div class="mode-name">Metro Quiz</div>
+            <div class="mode-desc">Guess the city from its metro map. No labels, no borders.</div>
           </button>
         </div>
       </div>
@@ -65,6 +70,28 @@
           <div class="timer-bar-wrap">
             <div id="timer-bar"></div>
           </div>
+        </div>
+      </div>
+
+      <!-- Metro Quiz -->
+      <div id="screen-metro" class="screen">
+        <button id="metro-exit-btn" class="btn btn-secondary" type="button">Exit</button>
+        <div id="metro-map"></div>
+        <canvas id="metro-canvas"></canvas>
+        <div id="metro-feedback"></div>
+        <div class="game-ui">
+          <div class="question-label">Which city is this metro system?</div>
+          <div class="input-row">
+            <input
+              id="metro-input"
+              type="text"
+              placeholder="Type the city…"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button id="metro-submit" class="btn btn-primary">Submit</button>
+          </div>
+          <button id="metro-hint" class="btn btn-secondary">Hint</button>
         </div>
       </div>
 

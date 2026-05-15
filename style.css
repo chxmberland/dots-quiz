@@ -292,6 +292,123 @@ html, body {
   color: var(--red);
 }
 
+/* ── Metro Quiz screen ── */
+#screen-metro {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#metro-exit-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  z-index: 10;
+}
+
+#metro-map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Dark background so the map looks right before tiles appear */
+#metro-map.leaflet-container,
+#metro-map .leaflet-container {
+  background: var(--bg) !important;
+}
+
+/* Tile layer hidden during guessing, fades in on reveal */
+#metro-map .leaflet-tile-pane {
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+
+#metro-map.show-tiles .leaflet-tile-pane {
+  opacity: 1;
+}
+
+#metro-map::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  z-index: 1000;
+  pointer-events: none;
+}
+
+#metro-canvas {
+  display: none;
+}
+
+#metro-feedback {
+  position: absolute;
+  top: calc(1.5rem + env(safe-area-inset-top, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+#metro-feedback.visible { opacity: 1; }
+
+#metro-feedback.correct {
+  background: rgba(63,185,80,0.15);
+  border: 1px solid var(--green);
+  color: var(--green);
+}
+
+#metro-feedback.wrong {
+  background: rgba(255,51,51,0.15);
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+
+#metro-input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 1rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+#metro-input:focus {
+  border-color: var(--accent);
+}
+
+#metro-input:disabled {
+  opacity: 0.5;
+}
+
+#metro-submit {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+}
+
+#metro-hint {
+  font-size: 0.85rem;
+  padding: 0.4rem 1.2rem;
+}
+
 /* ── End screen ── */
 #screen-end {
   gap: 1.2rem;

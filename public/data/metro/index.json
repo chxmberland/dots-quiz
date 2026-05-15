@@ -1,0 +1,722 @@
+[
+  {
+    "city": "Addis Ababa",
+    "slug": "addis-ababa"
+  },
+  {
+    "city": "Ahmedabad",
+    "slug": "ahmedabad"
+  },
+  {
+    "city": "Algiers",
+    "slug": "algiers"
+  },
+  {
+    "city": "Almaty",
+    "slug": "almaty"
+  },
+  {
+    "city": "Amsterdam",
+    "slug": "amsterdam"
+  },
+  {
+    "city": "Ankara",
+    "slug": "ankara"
+  },
+  {
+    "city": "Atlanta",
+    "slug": "atlanta"
+  },
+  {
+    "city": "Baku",
+    "slug": "baku"
+  },
+  {
+    "city": "Baltimore",
+    "slug": "baltimore"
+  },
+  {
+    "city": "Bangalore",
+    "slug": "bangalore"
+  },
+  {
+    "city": "Bangkok",
+    "slug": "bangkok"
+  },
+  {
+    "city": "Barcelona",
+    "slug": "barcelona"
+  },
+  {
+    "city": "Beijing",
+    "slug": "beijing"
+  },
+  {
+    "city": "Belo Horizonte",
+    "slug": "belo-horizonte"
+  },
+  {
+    "city": "Berlin",
+    "slug": "berlin"
+  },
+  {
+    "city": "Bilbao",
+    "slug": "bilbao"
+  },
+  {
+    "city": "Bogotá",
+    "slug": "bogota"
+  },
+  {
+    "city": "Boston",
+    "slug": "boston"
+  },
+  {
+    "city": "Brasília",
+    "slug": "brasilia"
+  },
+  {
+    "city": "Brescia",
+    "slug": "brescia"
+  },
+  {
+    "city": "Brussels",
+    "slug": "brussels"
+  },
+  {
+    "city": "Bucharest",
+    "slug": "bucharest"
+  },
+  {
+    "city": "Budapest",
+    "slug": "budapest"
+  },
+  {
+    "city": "Buenos Aires",
+    "slug": "buenos-aires"
+  },
+  {
+    "city": "Buffalo",
+    "slug": "buffalo"
+  },
+  {
+    "city": "Busan",
+    "slug": "busan"
+  },
+  {
+    "city": "Cairo Governorate",
+    "slug": "cairo"
+  },
+  {
+    "city": "Calgary",
+    "slug": "calgary"
+  },
+  {
+    "city": "Caracas",
+    "slug": "caracas"
+  },
+  {
+    "city": "Catania",
+    "slug": "catania"
+  },
+  {
+    "city": "Changsha",
+    "slug": "changsha"
+  },
+  {
+    "city": "Charlotte",
+    "slug": "charlotte"
+  },
+  {
+    "city": "Chengdu",
+    "slug": "chengdu"
+  },
+  {
+    "city": "Chennai",
+    "slug": "chennai"
+  },
+  {
+    "city": "Chicago",
+    "slug": "chicago"
+  },
+  {
+    "city": "Chongqing",
+    "slug": "chongqing"
+  },
+  {
+    "city": "Cleveland",
+    "slug": "cleveland"
+  },
+  {
+    "city": "Daegu",
+    "slug": "daegu"
+  },
+  {
+    "city": "Daejeon",
+    "slug": "daejeon"
+  },
+  {
+    "city": "Dalian",
+    "slug": "dalian"
+  },
+  {
+    "city": "Dallas",
+    "slug": "dallas"
+  },
+  {
+    "city": "Delhi",
+    "slug": "delhi"
+  },
+  {
+    "city": "Denver",
+    "slug": "denver"
+  },
+  {
+    "city": "Detroit",
+    "slug": "detroit"
+  },
+  {
+    "city": "Dhaka",
+    "slug": "dhaka"
+  },
+  {
+    "city": "Distrito Nacional",
+    "slug": "santo-domingo"
+  },
+  {
+    "city": "Dnirpo",
+    "slug": "dnipro"
+  },
+  {
+    "city": "Doha",
+    "slug": "doha"
+  },
+  {
+    "city": "Dubai",
+    "slug": "dubai"
+  },
+  {
+    "city": "Düsseldorf",
+    "slug": "dusseldorf"
+  },
+  {
+    "city": "Edmonton",
+    "slug": "edmonton"
+  },
+  {
+    "city": "Fortaleza",
+    "slug": "fortaleza"
+  },
+  {
+    "city": "Frankfurt am Main",
+    "slug": "frankfurt"
+  },
+  {
+    "city": "Fukuoka",
+    "slug": "fukuoka"
+  },
+  {
+    "city": "Genoa",
+    "slug": "genoa"
+  },
+  {
+    "city": "Guadalajara, Jalisco",
+    "slug": "guadalajara"
+  },
+  {
+    "city": "Guangzhou",
+    "slug": "guangzhou"
+  },
+  {
+    "city": "Gwangju",
+    "slug": "gwangju"
+  },
+  {
+    "city": "Hamburg",
+    "slug": "hamburg"
+  },
+  {
+    "city": "Hangzhou",
+    "slug": "hangzhou"
+  },
+  {
+    "city": "Hanoi",
+    "slug": "hanoi"
+  },
+  {
+    "city": "Harbin",
+    "slug": "harbin"
+  },
+  {
+    "city": "Hefei",
+    "slug": "hefei"
+  },
+  {
+    "city": "Helsinki",
+    "slug": "helsinki"
+  },
+  {
+    "city": "Ho Chi Minh City",
+    "slug": "ho-chi-minh-city"
+  },
+  {
+    "city": "Hong Kong",
+    "slug": "hong-kong"
+  },
+  {
+    "city": "Honolulu",
+    "slug": "honolulu"
+  },
+  {
+    "city": "Houston",
+    "slug": "houston"
+  },
+  {
+    "city": "Hyderabad",
+    "slug": "hyderabad"
+  },
+  {
+    "city": "Incheon",
+    "slug": "incheon"
+  },
+  {
+    "city": "Isfahan",
+    "slug": "isfahan"
+  },
+  {
+    "city": "Istanbul",
+    "slug": "istanbul"
+  },
+  {
+    "city": "İzmir",
+    "slug": "izmir"
+  },
+  {
+    "city": "Jaipur",
+    "slug": "jaipur"
+  },
+  {
+    "city": "Jakarta",
+    "slug": "jakarta"
+  },
+  {
+    "city": "Kaohsiung",
+    "slug": "kaohsiung"
+  },
+  {
+    "city": "Kazan",
+    "slug": "kazan"
+  },
+  {
+    "city": "Kharkiv",
+    "slug": "kharkiv"
+  },
+  {
+    "city": "Kobe",
+    "slug": "kobe"
+  },
+  {
+    "city": "Kochi",
+    "slug": "kochi"
+  },
+  {
+    "city": "Kolkata",
+    "slug": "kolkata"
+  },
+  {
+    "city": "Kuala Lumpur",
+    "slug": "kuala-lumpur"
+  },
+  {
+    "city": "Kunming",
+    "slug": "kunming"
+  },
+  {
+    "city": "Kyiv",
+    "slug": "kyiv"
+  },
+  {
+    "city": "Kyoto",
+    "slug": "kyoto"
+  },
+  {
+    "city": "Lagos State",
+    "slug": "lagos"
+  },
+  {
+    "city": "Lausanne",
+    "slug": "lausanne"
+  },
+  {
+    "city": "Lille",
+    "slug": "lille"
+  },
+  {
+    "city": "Lima",
+    "slug": "lima"
+  },
+  {
+    "city": "Lisbon",
+    "slug": "lisbon"
+  },
+  {
+    "city": "London",
+    "slug": "london"
+  },
+  {
+    "city": "Los Angeles",
+    "slug": "los-angeles"
+  },
+  {
+    "city": "Lucknow",
+    "slug": "lucknow"
+  },
+  {
+    "city": "Lyon",
+    "slug": "lyon"
+  },
+  {
+    "city": "Madrid",
+    "slug": "madrid"
+  },
+  {
+    "city": "Manila",
+    "slug": "manila"
+  },
+  {
+    "city": "Marseille",
+    "slug": "marseille"
+  },
+  {
+    "city": "Mashhad",
+    "slug": "mashhad"
+  },
+  {
+    "city": "Medellín",
+    "slug": "medellin"
+  },
+  {
+    "city": "Mexico City",
+    "slug": "mexico-city"
+  },
+  {
+    "city": "Miami",
+    "slug": "miami"
+  },
+  {
+    "city": "Milan",
+    "slug": "milan"
+  },
+  {
+    "city": "Minneapolis",
+    "slug": "minneapolis"
+  },
+  {
+    "city": "Minsk",
+    "slug": "minsk"
+  },
+  {
+    "city": "Monterrey, Nuevo León",
+    "slug": "monterrey"
+  },
+  {
+    "city": "Montreal",
+    "slug": "montreal"
+  },
+  {
+    "city": "Moscow",
+    "slug": "moscow"
+  },
+  {
+    "city": "Munich",
+    "slug": "munich"
+  },
+  {
+    "city": "Nagoya",
+    "slug": "nagoya"
+  },
+  {
+    "city": "Nagpur",
+    "slug": "nagpur"
+  },
+  {
+    "city": "Nanjing",
+    "slug": "nanjing"
+  },
+  {
+    "city": "Naples",
+    "slug": "naples"
+  },
+  {
+    "city": "New York City",
+    "slug": "new-york-city"
+  },
+  {
+    "city": "Ningbo",
+    "slug": "ningbo"
+  },
+  {
+    "city": "Nizhny Novgorod",
+    "slug": "nizhny-novgorod"
+  },
+  {
+    "city": "Novosibirsk",
+    "slug": "novosibirsk"
+  },
+  {
+    "city": "Nuremberg",
+    "slug": "nuremberg"
+  },
+  {
+    "city": "Osaka",
+    "slug": "osaka"
+  },
+  {
+    "city": "Oslo",
+    "slug": "oslo"
+  },
+  {
+    "city": "Ottawa",
+    "slug": "ottawa"
+  },
+  {
+    "city": "Paris",
+    "slug": "paris"
+  },
+  {
+    "city": "Philadelphia",
+    "slug": "philadelphia"
+  },
+  {
+    "city": "Phoenix",
+    "slug": "phoenix"
+  },
+  {
+    "city": "Pittsburgh",
+    "slug": "pittsburgh"
+  },
+  {
+    "city": "Portland",
+    "slug": "portland"
+  },
+  {
+    "city": "Porto Alegre, Rio Grande do Sul",
+    "slug": "porto-alegre"
+  },
+  {
+    "city": "Porto, Portugal",
+    "slug": "porto"
+  },
+  {
+    "city": "Prague",
+    "slug": "prague"
+  },
+  {
+    "city": "Qingdao",
+    "slug": "qingdao"
+  },
+  {
+    "city": "Quito",
+    "slug": "quito"
+  },
+  {
+    "city": "Recife",
+    "slug": "recife"
+  },
+  {
+    "city": "Rennes",
+    "slug": "rennes"
+  },
+  {
+    "city": "Rio de Janeiro",
+    "slug": "rio-de-janeiro"
+  },
+  {
+    "city": "Riyadh",
+    "slug": "riyadh"
+  },
+  {
+    "city": "Rome",
+    "slug": "rome"
+  },
+  {
+    "city": "Rotterdam",
+    "slug": "rotterdam"
+  },
+  {
+    "city": "Sacramento",
+    "slug": "sacramento"
+  },
+  {
+    "city": "Saint Petersburg, Russia",
+    "slug": "saint-petersburg-russia"
+  },
+  {
+    "city": "Salt Lake City",
+    "slug": "salt-lake-city"
+  },
+  {
+    "city": "Salvador, Bahia",
+    "slug": "salvador"
+  },
+  {
+    "city": "Samara, Russia",
+    "slug": "samara-russia"
+  },
+  {
+    "city": "San Diego",
+    "slug": "san-diego"
+  },
+  {
+    "city": "San Francisco",
+    "slug": "san-francisco"
+  },
+  {
+    "city": "San Jose",
+    "slug": "san-jose"
+  },
+  {
+    "city": "Santiago, Chile",
+    "slug": "santiago-chile"
+  },
+  {
+    "city": "São Paulo",
+    "slug": "sao-paulo"
+  },
+  {
+    "city": "Sapporo",
+    "slug": "sapporo"
+  },
+  {
+    "city": "Seattle",
+    "slug": "seattle"
+  },
+  {
+    "city": "Sendai",
+    "slug": "sendai"
+  },
+  {
+    "city": "Seoul",
+    "slug": "seoul"
+  },
+  {
+    "city": "Seville",
+    "slug": "seville"
+  },
+  {
+    "city": "Shanghai",
+    "slug": "shanghai"
+  },
+  {
+    "city": "Shiraz",
+    "slug": "shiraz"
+  },
+  {
+    "city": "Singapore",
+    "slug": "singapore"
+  },
+  {
+    "city": "Sofia, Bulgaria",
+    "slug": "sofia-bulgaria"
+  },
+  {
+    "city": "St. Louis",
+    "slug": "st-louis"
+  },
+  {
+    "city": "Stockholm",
+    "slug": "stockholm"
+  },
+  {
+    "city": "Suzhou",
+    "slug": "suzhou"
+  },
+  {
+    "city": "Tabriz",
+    "slug": "tabriz"
+  },
+  {
+    "city": "Taipei",
+    "slug": "taipei"
+  },
+  {
+    "city": "Tbilisi",
+    "slug": "tbilisi"
+  },
+  {
+    "city": "Tehran",
+    "slug": "tehran"
+  },
+  {
+    "city": "Tel Aviv-Yafo",
+    "slug": "tel-aviv-yafo"
+  },
+  {
+    "city": "Thessaloniki",
+    "slug": "thessaloniki"
+  },
+  {
+    "city": "Tianjin",
+    "slug": "tianjin"
+  },
+  {
+    "city": "Tokyo",
+    "slug": "tokyo"
+  },
+  {
+    "city": "Toronto",
+    "slug": "toronto"
+  },
+  {
+    "city": "Toulouse",
+    "slug": "toulouse"
+  },
+  {
+    "city": "Tunis",
+    "slug": "tunis"
+  },
+  {
+    "city": "Turin",
+    "slug": "turin"
+  },
+  {
+    "city": "Valencia, Spain",
+    "slug": "valencia"
+  },
+  {
+    "city": "Vancouver",
+    "slug": "vancouver"
+  },
+  {
+    "city": "Vienna",
+    "slug": "vienna"
+  },
+  {
+    "city": "Warsaw",
+    "slug": "warsaw"
+  },
+  {
+    "city": "Washington",
+    "slug": "washington"
+  },
+  {
+    "city": "Wuhan",
+    "slug": "wuhan"
+  },
+  {
+    "city": "Xi'an",
+    "slug": "xi-an"
+  },
+  {
+    "city": "Yekaterinburg",
+    "slug": "yekaterinburg"
+  },
+  {
+    "city": "Yerevan",
+    "slug": "yerevan"
+  },
+  {
+    "city": "Yokohama",
+    "slug": "yokohama"
+  }
+]

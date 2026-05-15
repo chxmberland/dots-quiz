@@ -1,5 +1,5 @@
-export type Mode = 'daily' | 'hard' | 'endless';
-export type PersistedMode = Exclude<Mode, 'endless'>;
+export type Mode = 'daily' | 'hard' | 'endless' | 'metro';
+export type PersistedMode = Exclude<Mode, 'endless' | 'metro'>;
 
 export type Capital = {
   city: string;
